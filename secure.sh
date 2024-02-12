@@ -45,6 +45,8 @@ ufw enable
     printf "\n"
     printf "[sshd]\n"
     printf "enabled = true\n"
+    printf "logpath = /var/log/fail2ban-ssh.log\n"
 } | tee /etc/fail2ban/jail.local
 
+touch /var/log/fail2ban-ssh.log
 systemctl enable --now fail2ban.service
